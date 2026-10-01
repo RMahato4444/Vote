@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  background: #0f1012;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(107, 62, 92, .22), transparent 30%),
+    radial-gradient(circle at 92% 12%, rgba(199, 168, 107, .13), transparent 28%),
+    radial-gradient(circle at 50% 90%, rgba(143, 163, 138, .08), transparent 28%),
+    linear-gradient(180deg, #0f1012 0%, #121316 48%, #0f1012 100%);
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid #c7a86b;
+  outline-offset: 3px;
+}
+
+.glass {
+  background: rgba(23, 23, 27, .72);
+  border: 1px solid rgba(244, 239, 230, .08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.grid-fade {
+  background-image:
+    linear-gradient(rgba(244, 239, 230, .025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 239, 230, .025) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+.winner-screen {
+  background:
+    radial-gradient(circle at 50% 25%, rgba(199, 168, 107, .16), transparent 30%),
+    radial-gradient(circle at 15% 80%, rgba(107, 62, 92, .16), transparent 32%),
+    linear-gradient(180deg, #0f1012 0%, #17151a 100%);
+}
+
+.winner-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  opacity: .42;
+  animation: winnerFloat 7s ease-in-out infinite;
+}
+
+.winner-orb-one {
+  width: 260px;
+  height: 260px;
+  left: -60px;
+  top: 8%;
+  background: rgba(107, 62, 92, .45);
+}
+
+.winner-orb-two {
+  width: 220px;
+  height: 220px;
+  right: -40px;
+  bottom: 8%;
+  background: rgba(199, 168, 107, .3);
+  animation-delay: -2s;
+}
+
+.winner-crown {
+  animation: winnerPulse 2.6s ease-in-out infinite;
+}
+
+.winner-card {
+  animation: winnerRise .8s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.winner-confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.winner-confetti span {
+  position: absolute;
+  top: -15vh;
+  left: calc((var(--i, 1) * 5%) + 2%);
+  width: 8px;
+  height: 18px;
+  border-radius: 999px;
+  background: #c7a86b;
+  opacity: .6;
+  animation: confettiDrop 5s linear infinite;
+}
+
+.winner-confetti span:nth-child(2n) { background: #8fa38a; animation-delay: -.9s; }
+.winner-confetti span:nth-child(3n) { background: #9a5b79; animation-delay: -1.8s; }
+.winner-confetti span:nth-child(4n) { background: #efe3ca; animation-delay: -2.5s; }
+.winner-confetti span:nth-child(5n) { background: #6b3e5c; animation-delay: -3.2s; }
+
+.winner-confetti span:nth-child(1) { left: 5%; }
+.winner-confetti span:nth-child(2) { left: 11%; }
+.winner-confetti span:nth-child(3) { left: 17%; }
+.winner-confetti span:nth-child(4) { left: 23%; }
+.winner-confetti span:nth-child(5) { left: 29%; }
+.winner-confetti span:nth-child(6) { left: 35%; }
+.winner-confetti span:nth-child(7) { left: 41%; }
+.winner-confetti span:nth-child(8) { left: 47%; }
+.winner-confetti span:nth-child(9) { left: 53%; }
+.winner-confetti span:nth-child(10) { left: 59%; }
+.winner-confetti span:nth-child(11) { left: 65%; }
+.winner-confetti span:nth-child(12) { left: 71%; }
+.winner-confetti span:nth-child(13) { left: 77%; }
+.winner-confetti span:nth-child(14) { left: 83%; }
+.winner-confetti span:nth-child(15) { left: 89%; }
+.winner-confetti span:nth-child(16) { left: 94%; }
+.winner-confetti span:nth-child(17) { left: 38%; }
+.winner-confetti span:nth-child(18) { left: 62%; }
+.winner-confetti span:nth-child(19) { left: 8%; }
+.winner-confetti span:nth-child(20) { left: 86%; }
+
+@keyframes winnerPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(199, 168, 107, .08); }
+  50% { transform: scale(1.06); box-shadow: 0 0 0 20px rgba(199, 168, 107, 0); }
+}
+
+@keyframes winnerFloat {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-18px) translateX(10px); }
+}
+
+@keyframes winnerRise {
+  from { opacity: 0; transform: translateY(22px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes confettiDrop {
+  0% { transform: translateY(-10vh) rotate(0deg); }
+  100% { transform: translateY(120vh) rotate(540deg); }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(160, 145, 124, .35) transparent;
+}
