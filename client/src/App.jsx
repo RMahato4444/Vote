@@ -194,7 +194,7 @@ function App() {
       <main className="relative z-10 mx-auto max-w-6xl px-4 pb-12 pt-8 sm:px-6 sm:pt-10 lg:px-8">
         <section className="mx-auto max-w-3xl text-center">
           <Trophy className="mx-auto h-7 w-7 text-[#c7a86b]" />
-          <h1 className="mt-4 text-4xl font-black tracking-tight text-[#f4efe6] sm:text-5xl md:text-6xl">Cast your vote</h1>
+          <h1 className="mt-4 text-4xl font-black tracking-tight text-[#f4efe6] sm:text-5xl md:text-6xl">Cast your vote For Team Leader Tyson</h1>
         </section>
 
         <div className="mx-auto mt-8 max-w-5xl">
